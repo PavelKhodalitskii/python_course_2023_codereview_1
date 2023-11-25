@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class MusicScratchAppConfig(AppConfig):
+class MuztorgScratchMainappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'music_scratch_app'
+    name = 'muztorg_scratch_mainapp'
