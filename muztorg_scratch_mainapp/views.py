@@ -4,3 +4,6 @@ from django.views.generic import ListView, DetailView, TemplateView
 
 class MainPageView(TemplateView):
     template_name = "base.html"
+
+class ProductList(ListView):
+    template_name = ""

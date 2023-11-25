@@ -1,9 +1,14 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+    <!-- <link rel="shortcut icon" href="{% static 'images/sitelogo.png' %}" type="image/x-icon"/> -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
@@ -12,6 +17,19 @@
     <title>Code Review 1 - 2023</title>
 </head>
 <body>
-    
+    <header class="profile_container">
+        <div class="content_wrapper">
+            <h1 class="header-info-h1">CODE REVIEW 1</h1>
+            <h2 class="header-info-h2">Парсинг <a href="https://www.muztorg.ru/" style="font-size: 35pt">этого</a> сайта</h2>
+            <h3 class="header-info-h3">Автор: <a href="https://pavelkhodalitskii.github.io/dpp_task_1/" style="font-size: 30pt">Ходалицкий Павел</a></h3>
+        </div>
+    </header>
+    <section class="best_deals">
+        <div class="best_deals_text_wrapper">
+            <h2 class="best_deals_text">Лучшие предложения</h2>
+        </div>
+    </section>
+    <section class="categories">
+    </section>
 </body>
 </html>
