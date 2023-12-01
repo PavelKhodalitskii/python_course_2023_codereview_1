@@ -13,7 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    
+    <link href="{% static 'css/materialize.min.css' %}" type="text/css", rel="stylesheet">
+
     <title>Code Review 1 - 2023</title>
 </head>
 <body>
@@ -24,12 +25,16 @@
             <h3 class="header-info-h3">Автор: <a href="https://pavelkhodalitskii.github.io/dpp_task_1/" style="font-size: 30pt">Ходалицкий Павел</a></h3>
         </div>
     </header>
-    <section class="best_deals">
-        <div class="best_deals_text_wrapper">
-            <h2 class="best_deals_text">Лучшие предложения</h2>
-        </div>
-    </section>
-    <section class="categories">
-    </section>
+    {% block content %}
+    {% endblock %}
+    <div class="footer_top_border">
+    </div>
+    <footer>
+        <h1>dreamsobenatic00@mail.ru</h1>
+        <h2><a href="https://github.com/PavelKhodalitskii">GitHub</a></h2>
+        <h2><a href="https://vk.com/pleiada_01">VK</a></h2>
+        <p>Сделано мной</p>
+        <p>Права не защищены</p>
+    </footer>
 </body>
 </html>

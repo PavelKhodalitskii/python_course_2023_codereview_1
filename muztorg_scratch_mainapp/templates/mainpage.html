@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="best_deals">
+        <div class="best_deals_text_wrapper">
+            <h2 class="best_deals_text">Лучшие предложения</h2>
+        </div>
+    </section>
+    <section class="categories">
+        <a class="category" href="{% url 'category' 'EG' '1' %}">
+            <h3>Электрогитары</h3>
+        </a>
+        <a class="category" href="{% url 'category' 'AG' '1' %}">
+            <h3>Акустические гитары</h3>
+        </a>
+        <a class="category" href="{% url 'category' 'GA' '1' %}">
+            <h3>Усилителели для гитар</h3>
+        </a>
+        <a class="category" href="{% url 'category' 'AS' '1' %}">
+            <h3>Акустические системы</h3>
+        </a>
+        <a class="category" href="{% url 'category' 'DP' '1' %}">
+            <h3>Цифровые пианино</h3>
+        </a>
+        <a class="category" href="{% url 'category' 'Sn' '1' %}">
+            <h3>Синтезаторы</h3>
+        </a>
+        <a class="category" href="{% url 'category' 'Mf' '1' %}">
+            <h3>Усилителели для гитар</h3>
+        </a>
+        <a class="category" href="{% url 'category' 'Rs' '1' %}">
+            <h3>Усилителели для гитар</h3>
+        </a>
+    </section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="carousel">
+        {% for photo in product.details.detail_photos.photos.all %}
+            <div class="carousel-item">
+                <img src="{{ photo.photo.url }}" class="product_photo" alt="Изображение инструмента">
+            </div>
+        {% endfor %}
+    </div>
+    <h1>{{product.name}}</h1>
+    <p>{{product.price}}</p>
+    <p>{{product.details.about}}</p>
+    <p>{{product.details.raiting}}</p>
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let elems = document.querySelectorAll(".carousel");
+            let instances = M.Carousel.init(elems, {
+                duration: 1000,
+                dist: -100,
+                numVisible: 3
+            })
+        })
+    </script>
+{% endblock %}
