@@ -54,6 +54,8 @@ class Scratch:
                     product.save()
             except KeyError:
                 break
+            except TypeError:
+                continue
         product_photos.save()
         product_detail.photos = product_photos
         product_detail.save()
