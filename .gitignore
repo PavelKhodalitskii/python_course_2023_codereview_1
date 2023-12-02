@@ -10,6 +10,8 @@ __pycache__/
 *.py[cod]
 *pyc
 
+.sqlite3
+
 media/photos/*.jpg
 !media/background
 !media/profile_picture
