@@ -10,6 +10,6 @@ __pycache__/
 *.py[cod]
 *pyc
 
-media/
+media/photos/*.jpg
 !media/background
 !media/profile_picture
