@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'muztorg_scratch_mainapp.apps.MuztorgScratchMainappConfig',
+
+    'easy_thumbnails',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -78,10 +81,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'scratchdb',
+        'USER': 'scratch',
+        'PASSWORD': 'admin', 
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 
 # Password validation
@@ -125,5 +138,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = ''
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+THUMBNAIL_DEBUG = True

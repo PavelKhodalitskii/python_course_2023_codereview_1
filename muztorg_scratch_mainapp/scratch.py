@@ -49,8 +49,10 @@ class Scratch:
                 photo.save()
 
                 if i == 0:
+                    print("IMAGE PATH: ", image_path, "SAVE PATH: ", save_path)
                     # Product.objects.get(id=product_detail.product.id).update(photo=image_path)
-                    product.photo = "/" + save_path
+                    product.image = image_path
+                    # product.photo_str = image_path
                     product.save()
             except KeyError:
                 break

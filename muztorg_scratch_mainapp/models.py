@@ -18,7 +18,8 @@ class Product(models.Model):
     slug = models.SlugField(max_length=250)
     link = models.URLField(max_length=250)
     price = models.IntegerField()
-    photo = models.ImageField(upload_to="photos/", verbose_name="Фото", blank=True)
+    image = models.ImageField(upload_to="photos/", verbose_name="Фото", blank=True)
+    photo_str = models.CharField(max_length=250, null=True)
     category = models.CharField(max_length=2, choices=ProductType.choices, default=ProductType.NoCategory)
 
     def __str__(self):

@@ -26,6 +26,15 @@ class ProductList(ListView):
             queryset = queryset.filter(category=category_slug)
         return queryset
     
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category_slug = self.kwargs[self.slug_url_kwarg]
+        page_number = self.kwargs[self.page_number_kwarg]
+        prev_page = str(int(page_number) - 1)
+        next_page = str(int(page_number) + 1)
+        c_def = {"base_ur": "photos/rockdale-stars-hss-bk0.jpg", "next_page": next_page, "prev_page": prev_page, "category_slug": category_slug}
+        return dict(list(context.items()) + list(c_def.items()))
+    
 class ProductDetailView(DetailView):
     model = Product
     template_name = "detail_view.html"
