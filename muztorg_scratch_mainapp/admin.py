@@ -5,7 +5,7 @@ from django.contrib import admin
 from .models import Product, ProductDetails, ProductPhotos, Photo
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'slug', 'details')
+    list_display = ('name', 'slug', 'image', 'details')
 
 class ProductDetailsAdmin(admin.ModelAdmin):
     list_display = ('product', 'about', 'raiting')

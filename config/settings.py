@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%hvlh2$*4r#=q1v9b4=h)=u4%(l4v&szw=pw-s+*1+*y(w0d=e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'muztorg_scratch_mainapp.apps.MuztorgScratchMainappConfig',
+
+    'easy_thumbnails',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -78,10 +81,22 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'scratchdb',
+        'USER': 'scratch',
+        'PASSWORD': 'admin', 
+        'HOST': 'postgres',
+        'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 
 # Password validation
@@ -125,5 +140,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = ''
+MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+
+THUMBNAIL_DEBUG = False

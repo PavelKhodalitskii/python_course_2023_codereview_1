@@ -1,13 +1,32 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% load thumbnail %}
+
 {% block content %}
     <section class="product_list_wrapper">
     {% for product in products %}
         <a href="{% url 'product' product.slug %}", class="product_card">
-            <img src="{{ product.photo }}" style="height: 100px;">
-            <h3>{{ product.name }}</h3>
-            <p>{{ product.price }}</p>
+            {% thumbnail product.image 2000x1200 crop="smart" as im %}
+
+            {% if im.url != NULL %}
+                <img src="{{ im.url }}" class="product_card_image">
+            {% else %}
+                <img src="{% static 'images/no_image.png' %}" class="product_card_image">
+            {% endif %}
+            <div class="product_short_info_wrapper">
+                <h3 class="product_card_name">{{ product.name }}</h3>
+                <p class="product_card_price">Цена: {{ product.price }} Р.</p>
+                <p>Рейтинг: {{ product.details.raiting }}</p>
+            </div>
         </a>
     {% endfor %}
     </section>
+    <div>
+        {% if prev_page == '0' %}
+        {% else %}
+            <a href="{% url 'category' category_slug prev_page %}">Предыдущая</a>
+        {% endif %}
+            <a href="{% url 'category' category_slug next_page %}">Следующая</a>
+    </div>
 {% endblock %}
