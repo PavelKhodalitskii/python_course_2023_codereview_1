@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%hvlh2$*4r#=q1v9b4=h)=u4%(l4v&szw=pw-s+*1+*y(w0d=e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -85,6 +85,8 @@ DATABASES = {
         'NAME': 'scratchdb',
         'USER': 'scratch',
         'PASSWORD': 'admin', 
+        'HOST': 'postgres',
+        'PORT': '5432',
     }
 }
 
@@ -140,7 +142,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_URL = ''
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-THUMBNAIL_DEBUG = True
+THUMBNAIL_DEBUG = False

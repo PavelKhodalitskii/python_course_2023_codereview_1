@@ -7,9 +7,11 @@ certifi==2023.11.17
 charset-normalizer==3.3.2
 comm==0.2.0
 cssselect==1.2.0
+cssselect2==0.7.0
 debugpy==1.8.0
 decorator==5.1.1
 Django==4.2.7
+easy-thumbnails==2.8.1
 exceptiongroup==1.2.0
 executing==2.0.1
 fake-useragent==1.4.0
@@ -31,6 +33,7 @@ Pillow==10.1.0
 platformdirs==4.0.0
 prompt-toolkit==3.0.41
 psutil==5.9.6
+psycopg2-binary==2.9.9
 ptyprocess==0.7.0
 pure-eval==0.2.2
 pyee==8.2.2
@@ -39,12 +42,15 @@ pyppeteer==1.0.2
 pyquery==2.0.0
 python-dateutil==2.8.2
 pyzmq==25.1.1
+reportlab==4.0.7
 requests==2.31.0
 requests-html==0.10.0
 six==1.16.0
 soupsieve==2.5
 sqlparse==0.4.4
 stack-data==0.6.3
+svglib==1.5.1
+tinycss2==1.2.1
 tornado==6.3.3
 tqdm==4.66.1
 traitlets==5.13.0
@@ -52,5 +58,6 @@ typing_extensions==4.8.0
 urllib3==1.26.18
 w3lib==2.1.2
 wcwidth==0.2.12
+webencodings==0.5.1
 websockets==10.4
 zipp==3.17.0

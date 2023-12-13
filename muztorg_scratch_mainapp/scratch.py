@@ -1,12 +1,15 @@
+import os
 from django.template.defaultfilters import slugify
+
+from django.core.files import File
+from django.core.files.temp import NamedTemporaryFile
+
 
 from .models import Product, ProductDetails, ProductPhotos, Photo
 from config.settings import MEDIA_ROOT
 
 from requests import get, post
 from bs4 import BeautifulSoup
-from requests_html import HTMLSession
-
 
 class Scratch:
     __instance = None
@@ -39,8 +42,11 @@ class Scratch:
             try:
                 photo_link = BeautifulSoup(f'{photos_divs[i].find("img")}', "lxml").img['data-src']
                 image = get(photo_link)
-                save_path = "media/photos/" + slugify(product_detail.product.name) + str(i) + ".jpg"
-                image_path = "photos/" + slugify(product_detail.product.name) + str(i) + ".jpg"
+
+                photo_name = slugify(product_detail.product.name) + str(i) + ".jpg"
+                main_photo_name = slugify(product_detail.product.name) + str(i) + "_main" + ".jpg"
+                save_path = "media/photos/" + photo_name
+                image_path = "photos/" + photo_name
                 src = open(save_path, "wb")
                 src.write(image.content)
                 src.close()
@@ -50,9 +56,13 @@ class Scratch:
 
                 if i == 0:
                     print("IMAGE PATH: ", image_path, "SAVE PATH: ", save_path)
-                    # Product.objects.get(id=product_detail.product.id).update(photo=image_path)
-                    product.image = image_path
-                    # product.photo_str = image_path
+
+                    img_temp = NamedTemporaryFile(delete=True)
+                    img_temp.write(image.content)
+                    img_temp.flush()
+
+                    product.image.save(main_photo_name, File(img_temp), save=True)
+                    # product_image = image_path
                     product.save()
             except KeyError:
                 break
@@ -88,6 +98,7 @@ class Scratch:
 
     def get_data_by_cat(self, cat, page):
         #Получаем url категории, формируем url страницы и получаем суп
+        queryset = []
         url = self.urls[cat]
         page_url = url + str(page)
         response = get(page_url)
@@ -111,6 +122,7 @@ class Scratch:
             try:
                 #Пробуем получить продукт по имени
                 product = Product.objects.get(name=name)
+                queryset.append(product)
                 print("НАШЕЛ ТОВАР: ", product.name)
                 #Обновляем детали товара
                 # self.get_product_details(link, product)
@@ -132,3 +144,6 @@ class Scratch:
                     self.get_product_details(link, product)
                 except(RuntimeError):
                     continue
+
+                queryset.append(product)
+        return queryset

@@ -12,14 +12,12 @@ class Product(models.Model):
         Synthesizers = 'Sn', 'Synthesizers'
         Microfones = 'Mf', 'Microfones'
         RadioSystems = 'RS', 'RadioSystems'
-        BestDeals = 'Bd', 'BestDeals'
         NoCategory = 'NC', 'NoCategory'
     name = models.CharField(max_length=75, verbose_name="Имя товара")
     slug = models.SlugField(max_length=250)
     link = models.URLField(max_length=250)
     price = models.IntegerField()
     image = models.ImageField(upload_to="photos/", verbose_name="Фото", blank=True)
-    photo_str = models.CharField(max_length=250, null=True)
     category = models.CharField(max_length=2, choices=ProductType.choices, default=ProductType.NoCategory)
 
     def __str__(self):

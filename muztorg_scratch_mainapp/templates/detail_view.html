@@ -9,10 +9,13 @@
             </div>
         {% endfor %}
     </div>
-    <h1>{{product.name}}</h1>
-    <p>{{product.price}}</p>
-    <p>{{product.details.about}}</p>
-    <p>{{product.details.raiting}}</p>
+    <div class="product_info_wrapper">
+        <h1>{{product.name}}</h1>
+        <p>Цена: {{product.price}} р.</p>
+        <p>{{product.details.about}}</p>
+        <p>Рейтинг: {{product.details.raiting}}</p>
+        <a href="{{product.link}}">Оригинальная карточка товара</a>
+    </div>
     <script src="{% static 'js/materialize.min.js' %}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
