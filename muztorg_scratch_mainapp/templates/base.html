@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+    <!-- <link rel="shortcut icon" href="{% static 'images/sitelogo.png' %}" type="image/x-icon"/> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="{% static 'css/materialize.min.css' %}" type="text/css", rel="stylesheet">
+
+    <title>Code Review 1 - 2023</title>
+</head>
+<body>
+    <header class="profile_container">
+        <div class="content_wrapper">
+            <h1 class="header-info-h1">CODE REVIEW 1</h1>
+            <h2 class="header-info-h2">Парсинг <a href="https://www.muztorg.ru/" style="font-size: 35pt">этого</a> сайта</h2>
+            <h3 class="header-info-h3">Автор: <a href="https://pavelkhodalitskii.github.io/dpp_task_1/" style="font-size: 30pt">Ходалицкий Павел</a></h3>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <div class="footer_top_border">
+    </div>
+    <footer class="footer_conc">
+        <h1>dreamsobenatic00@mail.ru</h1>
+        <h2><a href="https://github.com/PavelKhodalitskii">GitHub</a></h2>
+        <h2><a href="https://vk.com/pleiada_01">VK</a></h2>
+        <p>Сделано мной</p>
+        <p>Права не защищены</p>
+    </footer>
+</body>
+</html>

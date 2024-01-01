@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block content %}
+    <section class="best_deals">
+        <div class="best_deals_text_wrapper">
+            <h2 class="best_deals_text">Лучшие предложения</h2>
+        </div>
+        <div class="product_list_wrapper">
+            {% for product in products %}
+                {% if product %}
+                <a href="{% url 'product' product.slug %}", class="product_card">
+                    {% thumbnail product.image 2000x1200 crop="smart" as im %}
+        
+                    {% if im.url != NULL %}
+                        <img src="{{ im.url }}" class="product_card_image">
+                    {% else %}
+                        <img src="{% static 'images/no_image.png' %}" class="product_card_image">
+                    {% endif %}
+                    <div class="product_short_info_wrapper">
+                        <h3 class="product_card_name">{{ product.name }}</h3>
+                        <p class="product_card_price">Цена: {{ product.price }} Р.</p>
+                        <p>Рейтинг: {{ product.details.raiting }}</p>
+                    </div>
+                </a>
+                {% else %}
+                <div class="product_card">
+                    <img src="{% static 'images/no_image.png' %}" class="product_card_image">
+                    <div class="product_short_info_wrapper">
+                        <h3 class="product_card_name">Вы еще не напарсили достаточно товаров.</h3>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    <section class="categories">
+        <div class="best_deals_text_wrapper">
+            <h2 class="best_deals_text">Категории</h2>
+        </div>
+        <div class="cat_row">
+            <a class="category" href="{% url 'category' 'EG' '1' %}">
+                <img src="{% static 'images/electricguitars.jpg' %}">
+                <h3 class="category_title">Электрогитары</h3>
+            </a>
+            <a class="category" href="{% url 'category' 'AG' '1' %}">
+                <img src="{% static 'images/acoustic_guitars.jpg' %}">
+                <h3 class="category_title">Акустические гитары</h3>
+            </a>
+            <a class="category" href="{% url 'category' 'GA' '1' %}">
+                <img src="{% static 'images/guitar_amps.jpg' %}">
+                <h3 class="category_title">Усилителели для гитар</h3>
+            </a>
+            <a class="category" href="{% url 'category' 'AS' '1' %}">
+                <img src="{% static 'images/acoustic_systems.jpg' %}">
+                <h3 class="category_title">Акустические системы</h3>
+            </a>
+        </div>
+        <div class="cat_row">
+            <a class="category" href="{% url 'category' 'DP' '1' %}">
+                <img src="{% static 'images/digital_pianos.jpg' %}">
+                <h3 class="category_title">Цифровые пианино</h3>
+            </a>
+            <a class="category" href="{% url 'category' 'Sn' '1' %}">
+                <img src="{% static 'images/synths.jpg' %}">
+                <h3 class="category_title">Синтезаторы</h3>
+            </a>
+            <a class="category" href="{% url 'category' 'Mf' '1' %}">
+                <img src="{% static 'images/micros.jpg' %}">
+                <h3 class="category_title">Микрофоны</h3>
+            </a>
+            <a class="category" href="{% url 'category' 'RS' '1' %}">
+                <img src="{% static 'images/radiosystems.jpg' %}">
+                <h3 class="category_title">Радиосистемы</h3>
+            </a>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,17 @@
+db.sqlite3
+
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+
+__pycache__/
+**/__pycache__/
+.pyc
+*.py[cod]
+*pyc
+
+.sqlite3
+
+media/photos/*.jpg
+!media/background
+!media/profile_picture
